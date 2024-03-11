@@ -1,0 +1,6 @@
+{
+  "name": "iOS PWA Video Issues",
+  "short_name": "PWA Video",
+  "start_url": ".",
+  "display": "standalone"
+}

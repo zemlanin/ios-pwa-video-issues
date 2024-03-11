@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iOS PWA Video Issues</title>
+    <link rel="stylesheet" href="./pico.classless.min.css" />
+    <link rel="manifest" href="./app.webmanifest" />
+  </head>
+  <body>
+    <main>
+      <article>
+        This page demonstates issues with <code>&lt;video&gt;</code> element in
+        PWA/"Home Screen web app" on iOS, namely:
+        <ul>
+          <li>
+            <code>video.requestPictureInPicture</code> does nothing even
+            when <code>document.pictureInPictureEnabled</code> is
+            <code>true</code>
+          </li>
+          <li>
+            Videos playing from <code>ManagedMediaSource</code> doesn't keep the
+            device awake (unless user has
+            <a href="https://support.apple.com/en-us/102216" target="_blank"
+              >Attention Aware features</a
+            >
+            enabled and <i>looks at a screen</i>)
+          </li>
+        </ul>
+        <pre><code id="debug"></code></pre>
+
+        <footer>
+        <a href="https://github.com/zemlanin/ios-pwa-video-issues" target="_blank">Source</a>
+        </footer>
+      </article>
+
+      <article>
+        <header>Native video player</header>
+        <video id="native-video" controls preload width="320" height="180" playsinline>
+          <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" />
+        </video>
+        <footer>
+          <button type="button" onclick="nativeVideoPictureInPicture()">
+            requestPictureInPicture
+          </button>
+        </footer>
+      </article>
+
+      <article>
+        <header><code>ManagedMediaSource</code> video player</header>
+        <video id="mms-video" controls preload width="320" height="180" playsinline></video>
+        <footer>
+          <button type="button" onclick="mmsVideoPictureInPicture()">
+            requestPictureInPicture
+          </button>
+        </footer>
+      </article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
