@@ -10,27 +10,40 @@
   <body>
     <main>
       <article>
-        This page demonstates issues with <code>&lt;video&gt;</code> element in
-        PWA/"Home Screen web app" on iOS, namely:
+        This page demonstates issues with <code>&lt;video&gt;</code> element in PWA/"Home
+        Screen web app" on iOS, namely:
         <ul>
           <li>
-            <code>video.requestPictureInPicture</code> does nothing even
-            when <code>document.pictureInPictureEnabled</code> is
+            <code>video.requestPictureInPicture</code> does nothing even when
+            <code>document.pictureInPictureEnabled</code> is
             <code>true</code>
           </li>
           <li>
-            Videos playing from <code>ManagedMediaSource</code> don't keep the
-            device awake (unless user has
-            <a href="https://support.apple.com/en-us/102216" target="_blank"
-              >Attention Aware features</a
-            >
+            Videos playing from <code>ManagedMediaSource</code> don't keep the device
+            awake (unless user has
+            <a href="https://support.apple.com/en-us/102216">Attention Aware features</a>
             enabled and <i>looks at a screen</i>)
+          </li>
+          <li>
+            Full Screen UI issues (iOS 17.4 screenshots of
+            <a href="./images/regular-full-screen.png">player in Safari</a> and
+            <a href="./images/pwa-full-screen.png">player in PWA</a>):
+            <ul>
+              <li>Home indicator doesn't hide</li>
+              <li>
+                When changing volume, both player and system volume sliders are displayed
+              </li>
+              <li>
+                On devices with Dynamic Island, "Currently playing" live activity is
+                displayed
+              </li>
+            </ul>
           </li>
         </ul>
         <pre><code id="debug"></code></pre>
 
         <footer>
-        <a href="https://github.com/zemlanin/ios-pwa-video-issues" target="_blank">Source</a>
+          <a href="https://github.com/zemlanin/ios-pwa-video-issues">Source</a>
         </footer>
       </article>
 
@@ -48,7 +61,14 @@
 
       <article>
         <header><code>ManagedMediaSource</code> video player</header>
-        <video id="mms-video" controls preload width="320" height="180" playsinline></video>
+        <video
+          id="mms-video"
+          controls
+          preload
+          width="320"
+          height="180"
+          playsinline
+        ></video>
         <footer>
           <button type="button" onclick="mmsVideoPictureInPicture()">
             requestPictureInPicture
