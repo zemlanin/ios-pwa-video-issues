@@ -10,19 +10,24 @@
   <body>
     <main>
       <article>
-        This page demonstates issues with <code>&lt;video&gt;</code> element in PWA/"Home
-        Screen web app" on iOS, namely:
+        <p>
+          This page demonstates issues with <code>&lt;video&gt;</code> element
+          in PWA/"Home Screen web app" on iOS, namely:
+        </p>
         <ul>
           <li>
             <code>video.requestPictureInPicture</code> does nothing even when
-            <code>document.pictureInPictureEnabled</code> is
-            <code>true</code>
+            <code>document.pictureInPictureEnabled</code> is <code>true</code>
+            <i>(FB17983433)</i>
           </li>
           <li>
-            Videos playing from <code>ManagedMediaSource</code> don't keep the device
-            awake (unless user has
-            <a href="https://support.apple.com/en-us/102216">Attention Aware features</a>
-            enabled and <i>looks at a screen</i>)
+            Videos playing from <code>ManagedMediaSource</code> don't keep the
+            device awake unless user has
+            <a href="https://support.apple.com/en-us/102216"
+              >Attention Aware features</a
+            >
+            enabled and <i>looks at a screen</i> or, starting with iOS 18.4,
+            site enables Screen Wake Lock <i>(FB17984089)</i>
           </li>
           <li>
             Full Screen UI issues (iOS 17.4 screenshots of
@@ -31,17 +36,18 @@
             <ul>
               <li>Home indicator doesn't hide</li>
               <li>
-                When changing volume, both player and system volume sliders are displayed
+                When changing volume, both player and system volume sliders are
+                displayed
               </li>
               <li>
-                On devices with Dynamic Island, "Currently playing" live activity is
-                displayed
+                On devices with Dynamic Island, "Currently playing" live
+                activity is displayed
               </li>
             </ul>
           </li>
         </ul>
 
-        The issue is still present in iOS/iPadOS 26 Developer Beta 1
+        <p>The issues are still present in iOS/iPadOS 26 Developer Beta 1</p>
 
         <pre><code id="debug"></code></pre>
 
@@ -52,7 +58,14 @@
 
       <article>
         <header>Native video player</header>
-        <video id="native-video" controls preload width="320" height="180" playsinline>
+        <video
+          id="native-video"
+          controls
+          preload
+          width="320"
+          height="180"
+          playsinline
+        >
           <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" />
         </video>
         <footer>
