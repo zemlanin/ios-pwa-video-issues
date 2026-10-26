@@ -7,7 +7,7 @@ This repo demonstates issues with `<video>` element in PWA/"Home Screen web app"
   - When changing volume, both player and system volume sliders are displayed
   - On devices with Dynamic Island, "Currently playing" live activity is displayed
 
-The issues are still present in iOS/iPadOS 26 Developer Beta 1
+The issues are still present in iOS/iPadOS 26 and 27.1
 
 ---
 
